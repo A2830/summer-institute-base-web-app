@@ -15,7 +15,7 @@
 <body>
 
 <header>
-  <nav class="navbar navbar-expand-md navbar-dark ">
+  <nav class="navbar navbar-expand-md navbar-dark bg-success " id="nav">
     <a href="/" class="navbar-brand"><%= ENV["ONDEMAND_TITLE"] %></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -34,8 +34,9 @@
           </a>
 
         </li>
-        <button onclick="LD()">Change Theme</button>
-     
+        
+          <button onclick="LD()" class="btn btn-primary" style="text-align: left;">Change Theme</button>
+    
       </ul>
     </div>
 
