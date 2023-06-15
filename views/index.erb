@@ -12,7 +12,7 @@
     <% @project_dirs.each do |dir| %>
     <li class="list-group-item btn btn-outline-dark m-3 border">
       <div><a href="<%= url("/projects/#{dir}") %>" class="text-center">
-        <i class="fas fa-fw fa-camera fa-5x "></i>
+        <i class="fa fa-video fa-5x"></i>
         <p><%= dir.gsub('_',' ').capitalize %></p>
       </a>
     </div>

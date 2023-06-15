@@ -1,1 +1,55 @@
-Showing project at <%= @dir %>
+<h1 class="d-flex my-2 justify-content-center"><%= @project_name %></h1>
+<h2>Render Frames</h2>
+<script src="<%= url("/projects.js") %>" type="application/javascript"></script>
+<form action="<%= url("/render/frames") %>" method ="post" enctype="multipart/form-data">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="blend_file"> Choose Blend</label>
+                <div class="input-group">
+                    <div class="custom_file">
+                        <input type="file" class="custom-file-input"name="blend_file" id="blend_file" accept=".blend">
+                        <label class="custom-file-label" for="blend_file"id="blend_file_name">Choose Your Blend Files</label>
+
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="uploaded_blend_file">Uploaded Blend </label>
+                <select name="upload_blend_file" class="form-control" id="uploaded_blend_file">
+                    <%- @upload_blend_files.each do |file| -%>
+                    <option value="<%= file %>"><%= file %></option>
+                    <%- end -%>
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="project_name">Project</label>
+                <select name="project_name" class="form-control" id="project_name" required><%- groups.each do |group| -%>
+                    <option value ="<%= group %>"><%= group %></option>
+                    <%- end -%>
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="num_cpus">How Many CPUs</label>
+                <input type="number" name="num_cpus" value="1" min="1" max="48" required>
+                <small class="form-text text-muted">More CPUs = Less Time</small></div>
+            <div class="form-group col-md-3">
+                <label for="frame_range">Range Of Frames</label>
+                <input type="text" name="frame_range" class="form-control" id="frames_range" pattern="(\d+\.\.\d+)|(\d+(?:,\d+)*)" required>
+                <small class="form-text text-muted">Ex: 1..10 or 1,3,7</small>
+            </div>
+            <div class="from-group col-md-3">
+                <label for="num_hours">Walltime (Hours) </label>
+                <input type="number" name="num_hours" class="form-control" id="num_hours" value="1"min="0"max="120" required>
+            </div>
+            <div class="d-none">
+                <input type="text" name="dir" id="dir" value="<%= @dir %>" required>
+                </div>
+
+
+        </div>
+        <div class="row justify-content-md-end my-1">
+            <button type="submit" class="btn btn-primary float-right">Render Frames</button></div>
+                        
+    </div>
+    </form>
