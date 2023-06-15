@@ -21,10 +21,14 @@ class App < Sinatra::Base
   def projects_root
     "#{__dir__}/projects"
   end
+
+  def project_dirs
+    Dir.children(projects_root).reject { |dir| dir == 'input_files' }.sort_by(&:to_s)
+  end
   get '/' do
     logger.info('requsting the index')
     @flash = session.delete(:flash) || { info:'Welcome to SI'}
-
+    @project_dirs = project_dirs
     erb :index
   end
 
