@@ -12,6 +12,7 @@
     <% @project_dirs.each do |dir| %>
     <li class="list-group-item btn btn-outline-dark m-3 border">
       <div><a href="<%= url("/projects/#{dir}") %>" class="text-center">
+        <a href="<%= url("/delete/#{dir}") %>" class="nav-link active" aria-current="page" <svg class="bi me-2" width="3" height="16"><use xlink.href="#delete">Delete</use></svg>></a>
         <i class="fa fa-video fa-5x"></i>
         <p><%= dir.gsub('_',' ').capitalize %></p>
       </a>

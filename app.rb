@@ -93,6 +93,7 @@ class App < Sinatra::Base
       end
 
     @images = Dir.glob("#{@dir}/*.png")
+    `touch #{@dir}/.frame_render_job_id`
     @frame_render_job_id = File.read("#{@dir}/.frame_render_job_id").chomp
     @frame_render_job_state = job_state(@frame_render_job_id)
     @frame_render_badge = badge(@frame_render_job_state)
@@ -135,5 +136,12 @@ class App < Sinatra::Base
     
 
   end
+  
+  get '/delete/:dir' do
+    FileUtils.rm_rf("#{projects_root}/#{params[:dir]}")
+    session[:flash] = {info: "Deleted #{params[:dir]}"}
+    redirect(url('/'))
+  end     
+
   
 end
