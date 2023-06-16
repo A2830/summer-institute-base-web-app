@@ -113,12 +113,12 @@ class App < Sinatra::Base
 
     logger.info("Trying to render frames with '#{params.inspect}'")
 
-    if params['blend_file'].nil?
-      blend_file = "#{input_files_dir}/#{params[:uploaded_blend_files]}"
-    else
-      blend_file = "#{input_files_dir}/#{params['blend_file'][:filename]}" 
-      copy_upload(input: params['blend_file'][:tempfile], output: blend_file)
-    end
+    # if params['blend_file'].nil?
+      blend_file = "#{input_files_dir}/#{params[:upload_blend_files]}"
+    # else
+    #   blend_file = "#{input_files_dir}/#{params['blend_file'][:filename]}" 
+    #   copy_upload(input: params['blend_file'][:tempfile], output: blend_file)
+    # end
 
     dir=params[:dir]
     basename = File.basename(blend_file, '.*')
