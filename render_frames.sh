@@ -5,15 +5,18 @@ IFS=$'\n\t'
 function frames_range() {
     (
         set +u
-        echo"$Frames_Range" | perl - pe 's[.+/][]'
+        echo "$FRAMES_RANGE" | perl - pe 's[.+/][]'
 
     )
 }
+
 module load blender
+
+echo "The Range IS $(frames_range)"
 (
     cd $OUTPUT_DIR
     env | grep -P '^[A-Z]' | sort
-    set -x
+    # set -x
     blender \
         -b "$BLEND_FILE_PATH" \
         -F PNG \
