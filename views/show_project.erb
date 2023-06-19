@@ -6,8 +6,8 @@
 <h2 class="my-2">Images</h2>
 <p class="'my-1">There are <span id="list_size"><%= @images.length %></span> images for this project</p>
 <div class = "row pt-3">
-    <div id="blend_image_carousel" class="carosuel slide" data-ride="carosuel">
-        <ol id="blend_image_carousel" class="carousel-indicators">
+    <div id="blend_image_carousel" class="carousel slide" data-ride="carousel">
+        <ol id="blend_image_carousel_indicators" class="carousel-indicators">
             <% (1..@images.length).each do |idx| %>
             <li data-target="#blend_image_carousel" data-slide-to="<%= idx-1 %>" class="<%= idx == 1 ? 'active' : nil %>"></li>
             <% end %>
@@ -18,12 +18,12 @@
                     <img class="d-block w-100" src="/pun/sys/files/api/v1/fs<%= image %>">
                     </div>
                     <% end %>
-                    <a class="carousel-control-prev" href="#blend_image_carosuel" role="buttom" data-slide="prev">
+                    <a class="carousel-control-prev" href="#blend_image_carousel" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         </span><span class="sr-only">Previous</span>
                         </a>
                     <a class="carousel-control-next" href="#blend_image_carousel" role="button" data-slide="next">
-                        <span class="carousel-control-next-item" aria-hidden="true"></span>
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">Next</span></a>
             </div>
         </div>
@@ -84,7 +84,7 @@
 
     <h2 class="my-3"> Render a Video from Frames</h2>
 
-    <form action = "<%= url("/render/video/") %>" method ="post">
+    <form action = "<%= url("/render/video") %>" method ="post">
         <div class="col-md-12">
             <div class="row">
                 <div class="form-group col-md-3">
@@ -113,6 +113,9 @@
             <div class="row justify-justify-content-md-end my-1">
                 <button type="submit" class="btn btn-primary float-right">Render</button>
                 </div>
+                <video class="d-block w-100" controls>
+                    <source src="/pun/sys/files/api/v1/fs/<%= @dir %>/video.mp4" type="video/mp4">
+                </video>
 
                 
 

@@ -8,11 +8,11 @@ window.onload = () => {
         const infoArea = document.getElementById('blend_file_name');
         const input = event.srcElement;
         const fileName = input.files[0].name;
-        infoArea.textContent = 'File chosen/; ' = fileName;
+        infoArea.textContent = 'File chosen/; ' +  fileName;
     }
 
     function updateCarousel() {
-        const ops = {
+        const opts = {
             follow: true,
             headers: {
                 'Accept': 'application/json'

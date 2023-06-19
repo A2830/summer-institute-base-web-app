@@ -141,10 +141,12 @@ class App < Sinatra::Base
     `echo #{job_id} > #{dir}/.frame_render_job_id`
     session[:flash] = { info: "submitted job#{job_id}"}
     redirect(url("/projects/#{dir.split('/').last}"))
+  end
     
     post '/render/video' do
+   
       logger.info("Trying to render video with: #{params.inspect}")
-
+      
       output_dir = params[:dir]
       frames_per_second = params[:frames_per_second]
       walltime = format('%02d:00:00', params[:num_hours])
@@ -163,7 +165,7 @@ class App < Sinatra::Base
     end
     
 
-  end
+  
   
   get '/delete/:dir' do
     FileUtils.rm_rf("#{projects_root}/#{params[:dir]}")

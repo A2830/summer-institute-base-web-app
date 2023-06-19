@@ -13,3 +13,12 @@
 body{
     
 }
+.hov{
+    li:nth-child(2){
+        :hover{
+
+        }
+   
+
+}
+}
