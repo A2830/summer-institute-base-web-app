@@ -121,10 +121,11 @@
                 <button type="submit" class="btn btn-primary float-right">Render</button>
                 </div>
                 <video class="d-block w-100" controls>
-                    <source src="/pun/sys/files/api/v1/fs/<%= @dir %>/video.mp4" type="video/mp4">
+                    <source src="/pun/sys/files/api/v1/fs/<%= @dir %>/video.webm" type="video/mp4">
                 </video>
 
-                
+          
+                <a class= "btn btn-primary float-right" href="/pun/sys/files/api/v1/fs/video.webm" download>Download Video</a>
 
     </div>
     </form>
