@@ -95,6 +95,13 @@
                 </div>
 
                 <div class="form-group col-md-3">
+                    <label for="frames_per_second">Frames per Second</label>
+                    <input type="text" name="frames_per_second" class="form-control" id="frames_per_second" pattern="(\d+\.\.\d+)|(\d+(?:,\d+)*)" min="5" max="60" value="20" step="5" required>
+                    <small class="form-text text-muted">Add frames per second to get higher quality videos.</small>
+                </div>
+
+
+                <div class="form-group col-md-3">
                     <label for="num_cpus">How Many CPUs</label>
                     <input type="number" name="num_cpus" class="form-control" id="num_cpus" min="1" max="48" value="1" required>
                     <small class="form-text text-muted">More CPUs means less time rendering.</small>
