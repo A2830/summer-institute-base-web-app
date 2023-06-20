@@ -16,7 +16,14 @@
         <i class="fa fa-video fa-5x"></i>
         <p><%= dir.gsub('_',' ').capitalize %></p>
       </a>
-      <a href="<%= url("/delete/#{dir}") %>" class="nav-link active" aria-current="page" <svg class="bi me-2" width="3" height="16"><use xlink.href="#delete">Delete Project</use></svg></a>
+      <form action="<%= url("/delete/#{dir}") %>">
+        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this project?');">Delete</button>
+      
+        </form>
+        <br>
+        <!-- <form action="<%= url('/edit_project/#{:dir}') %>">
+                  <button class="btn btn-primary" type="submit">Edit</button>
+                </form> -->
     </div>
     </li>
     <% end %>

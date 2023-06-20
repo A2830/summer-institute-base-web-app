@@ -109,6 +109,12 @@ class App < Sinatra::Base
     erb(:show_project)
     end
   end
+  # get '/edit_project/:dir' do
+  #   @dir = params[:dir]
+  #   @project_name = @dir.basename.to_s.gsub('_',' ').capitalize
+  #   erb(:edit_project)
+    
+  # end
   post '/projects/new' do
 
     logger.info{"We are currently trying to render frames with #{params.inspect}."}
