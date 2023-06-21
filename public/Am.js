@@ -6,17 +6,33 @@ function LD(){
         body = document.getElementById("body");
         list = nav.classList;
         arrayNav = Array.from(list);
-    
-        if (arrayNav.includes('bg-success')){
+        count = 0; 
+        
+        if (count==0){
             list.remove('bg-success');
             list.add('bg-dark');
             console.log('change;');
+            count = count+1;
+            
         }
-        else{
+        else if (count==1){
             list.remove('bg-dark');
-            list.add('bg-success');
-            console.log('change;');
+            list.add('bg-danger');
+            count = count+1;
+          
+          }  console.log('change;');
+        else if (count==2){
+          list.remove('bg-danger');
+          list.add('bg-warning');
+          count = count+ 1;
         }
+        else if(count==3){
+          list.remove('bg-warning');
+          list.add('bg-info');
+          count = count + 1;
+        } 
+
+        
        //}
        // else{
     
