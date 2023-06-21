@@ -123,7 +123,7 @@
                 <!-- <video class="d-block w-100" controls>
                     <source src="<%= url('/video.mp4') %>" type="video/mp4">
                 </video>-->
-                <iframe width="356" height="115" src="<%= url('/video.mp4') %>"></iframe>
+                <iframe width="356" height="115" src="/pun/sys/files/api/v1/fs<%= @dir %>/video.mp4" referer-policy="same-origin"></iframe>
           
                 <a class= "btn btn-primary float-right" href="/pun/sys/files/api/v1/fs//<%= @dir %>/video.mp4" download>Download Video</a>
 
