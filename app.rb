@@ -2,6 +2,7 @@
 
 require 'sinatra/base'
 require 'logger'
+require 'date'
 
 # App is the main application where all your logic & routing will go
 class App < Sinatra::Base
@@ -73,8 +74,22 @@ class App < Sinatra::Base
   get '/' do
     logger.info('requsting the index')
     @flash = session.delete(:flash) || { info:'Welcome to SI'}
+
+    old_dirs = project_dirs.select do |dir|
+     
+      age_in_days = (Date.today - File.mtime("#{projects_root}/#{params[:dir]}").to_date).to_i
+      if age_in_days > 7
+        FileUtils.rm_rf("#{projects_root}/#{params[:dir]}")
+       
+   
+      end
+      
+    end
+
     @project_dirs = project_dirs
     erb :index
+
+
   end
 
   get '/projects/:dir' do 

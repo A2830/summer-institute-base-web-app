@@ -1,11 +1,13 @@
 let count = 0; 
+let counti = 0;
 function LD(){
   
        // if(div.backgroundColor = rgb(0,0,0)){
     
         nav = document.getElementById("nav");//.style.backgroundColor = rgb(23,23,83);
-        body = document.getElementById("body");
+       
         list = nav.classList;
+       
         arrayNav = Array.from(list);
         
         
@@ -58,6 +60,69 @@ function LD(){
     
     //}
     }
+    function IC(){
+  
+      // if(div.backgroundColor = rgb(0,0,0)){
+   
+     
+       icon = document.getElementsByClassName("fa fa-video fa-5x");
+     
+       iconl = icon.classList;
+       console.log(iconl);
+       iconArray = Array.from(iconl);
+      
+       
+       
+       if (counti==0){
+           list.remove('bg-success');
+           list.add('bg-dark');
+           console.log('change;');
+           counti = counti+1;
+           
+       }
+       else{
+         if (counti==1){
+           list.remove('bg-dark');
+           list.add('bg-danger');
+           counti = counti+1;
+         
+         }  
+         else{
+
+           if (counti==2){
+             list.remove('bg-danger');
+             list.add('bg-warning');
+             counti = counti+ 1;
+           }
+           else{
+
+             if(counti==3){
+             list.remove('bg-warning');
+             list.add('bg-info');
+             counti = counti + 1;
+             }
+             else{
+               if (counti==4){
+               list.remove('bg-info');
+               list.add('bg-success');
+           
+               counti = 0;
+             }
+            
+             }
+           }
+       } 
+     }
+     
+       
+      //}
+      // else{
+   
+           //document.div.style.backgroundColor = rgb(0,0,0);
+   
+   //}
+   }
+
     var modal = document.getElementById("myModal");
 
     // Get the button that opens the modal
